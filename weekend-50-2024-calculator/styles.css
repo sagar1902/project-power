@@ -1,0 +1,110 @@
+:root {
+  --primary: #e0e5ec;
+  --secondary: #8a92a5;
+  --accent: #4d5bf9;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background: var(--primary);
+}
+
+.calculator {
+  padding: 2rem;
+  border-radius: 30px;
+  background: var(--primary);
+  box-shadow: 13px 13px 26px #bec3c9, -13px -13px 26px #ffffff;
+  width: 350px;
+}
+
+.display {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  border-radius: 15px;
+  background: var(--primary);
+  box-shadow: inset 5px 5px 10px #bec3c9, inset -5px -5px 10px #ffffff;
+  height: 80px;
+  overflow: hidden;
+}
+
+#result {
+  height: 100%;
+  font-size: 2rem;
+  text-align: right;
+  color: var(--secondary);
+  word-wrap: break-word;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.8rem;
+}
+
+button {
+  padding: 0.8rem;
+  border: none;
+  border-radius: 12px;
+  background: var(--primary);
+  box-shadow: 5px 5px 10px #bec3c9, -5px -5px 10px #ffffff;
+  color: var(--secondary);
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:active {
+  box-shadow: inset 3px 3px 6px #bec3c9, inset -3px -3px 6px #ffffff;
+}
+
+button.operator {
+  color: var(--accent);
+  font-weight: bold;
+}
+
+button.equals {
+  background: var(--accent);
+  color: white;
+  grid-column: span 5;
+}
+
+@keyframes buttonPress {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.95);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.pressed {
+  animation: buttonPress 0.2s ease;
+}
+
+@media (max-width: 400px) {
+  .calculator {
+    width: 90%;
+    padding: 1.5rem;
+  }
+
+  .buttons {
+    gap: 0.5rem;
+  }
+
+  button {
+    padding: 0.6rem;
+    font-size: 1rem;
+  }
+}
